@@ -20,6 +20,19 @@ private $model;
 	}
 
 
+
+/**
+*
+* You get the information abaout position (before and after letters), also
+the max distance between letters.
+*
+* @param    array
+* @param    array
+* @param    array
+* @return    array
+*
+*/
+
    public function positions($param,$needle,$allpos)
     {
 
@@ -33,7 +46,7 @@ private $model;
                     {
                             $position_before = $position_before + 1;
                             $distance = $pos - $position_before;
-                            if($distance>$this->model->getDistance())
+                            if($distance>$this->model->getDistance()) //if we get the longest distance
                             {
                                     $this->model->setDistance($distance);
                                     $max_distance_letter = $needle;
@@ -55,6 +68,14 @@ private $model;
 
 
 
+/**
+*
+* Process all the information
+*
+* @param    array
+* @return   array 
+*
+*/
 
    public function proccessData($param)
    {
@@ -88,7 +109,6 @@ private $model;
 		   $grid = array("letter"              =>$needle,"qty"=>$i
 				   ,"max_distance_letter"=>$allpos["max_distance_letter"]
 				   ,"qty_chars"          =>$allpos["best_distance"]);
-		   //echo $needle.":".$i.":before:";
 		   $before = "";
 		   foreach($allpos_array as $ps)
 		   {
@@ -109,7 +129,6 @@ private $model;
 		   }
 		   $grid = array_merge($grid,array("after"=>$after));
 		   $grid_total = array_merge($grid_total,array($grid));
-		   //$this->setGrid($grid,$max_distance_letter);
 	   }
 
 

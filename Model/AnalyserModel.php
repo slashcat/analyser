@@ -36,14 +36,7 @@ class AnalyserModel
 	   }
    }
 
-/*
 
-	public function setCharsData($result)
-	{
-		$this->charsData($result);	
-	}
-
-*/
 
 /** SETTERS AND GETTERS **/
 
